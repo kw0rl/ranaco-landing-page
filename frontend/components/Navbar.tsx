@@ -17,10 +17,10 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
-    { href: '#utama', label: 'UTAMA' },
-    { href: '#programs', label: 'PROGRAM DITAWARKAN' },
-    { href: '#kenapa', label: 'KENAPA KAMI' },
-    { href: '#testimoni', label: 'TESTIMONI' },
+    { href: '/#utama', label: 'UTAMA' },
+    { href: '/#programs', label: 'PROGRAM DITAWARKAN' },
+    { href: '/#kenapa', label: 'KENAPA KAMI' },
+    { href: '/#testimoni', label: 'TESTIMONI' },
   ];
 
   return (
@@ -40,7 +40,7 @@ export default function Navbar() {
               <span className="hidden md:inline">marketing@reti.edu.my</span>
               <span className="md:hidden">Email</span>
             </a>
-            <a href="#footer" className="hidden lg:flex items-center gap-2 hover:text-[#FF6B5B] transition-colors">
+            <a href="/#footer" className="hidden lg:flex items-center gap-2 hover:text-[#FF6B5B] transition-colors">
               <MapPin size={16} />
               <span>PT 4568, Jalan Bengkel 1, Kawasan Perindustrian Jakar II, 24000 Kemaman, Terengganu</span>
             </a>
@@ -97,7 +97,7 @@ export default function Navbar() {
                 </a>
               ))}
               <a
-                href="#daftar"
+                href="/#daftar"
                 className="bg-[#FF6B5B] text-white px-6 py-3 rounded-full font-semibold hover:bg-[#ff5544] transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
               >
                 DAFTAR SEKARANG
@@ -156,7 +156,7 @@ export default function Navbar() {
             {/* Bottom Button */}
             <div className="p-6 border-t border-gray-200">
               <a
-                href="#daftar"
+                href="/#daftar"
                 className="block text-center bg-[#FF6B5B] text-white px-6 py-4 rounded-full font-semibold hover:bg-[#ff5544] transition-colors shadow-lg"
                 onClick={() => setIsMobileMenuOpen(false)}
               >

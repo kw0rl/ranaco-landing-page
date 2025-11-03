@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { ArrowRight, Ship, Shield, Truck, Droplet, ChefHat, ChevronDown, ChevronUp } from 'lucide-react';
 
 const programCategories = [
@@ -14,16 +15,19 @@ const programCategories = [
     programs: [
       {
         title: 'Diploma In Marine Cargo Surveying',
+        slug: 'marine-cargo-surveying',
         image: '/gambar course/diploma in marine cargo.png',
         description: 'Melahirkan graduan yang berkualiti, berilmu dan kompeten dalam survey and inspection management, perkapalan, logistik dan pengangkutan, dan import support.',
       },
       {
         title: 'Diploma In Maritime Management',
+        slug: 'maritime-management',
         image: '/gambar course/diploma in maritime management.png',
         description: 'Program ini memberi pendedahan kepada pelajar tentang prosedur sebenar pengurusan dalam sektor maritim seperti pengurusan pelabuhan, perkapalan, pengendalian kargo serta perdagangan antarabangsa.',
       },
       {
         title: 'Diploma In Nautical Studies',
+        slug: 'nautical-studies',
         image: '/gambar course/nautical studies.png',
         description: 'Melahirkan graduan yang berkualiti, berilmu dan kompeten dalam industri maritim terutamanya dalam sektor pengemudian. Program ini mendedahkan kepada pelajar tentang ilmu pelayaran dan pengemudian kapal.',
       },
@@ -38,11 +42,13 @@ const programCategories = [
     programs: [
       {
         title: 'Diploma In Occupational Safety & Health',
+        slug: 'occupational-safety-health',
         image: '/gambar course/occupational safety health.png',
         description: 'Melahirkan graduan yang berkualiti, berilmu dan kompeten untuk menceburkan diri dalam bidang pengurusan keselamatan dan kesihatan pekerjaan. Program ini mendapat perakuan daripada JKKP.',
       },
       {
         title: 'Diploma In Integrated Management System',
+        slug: 'integrated-management-system',
         image: '/gambar course/integrated management.png',
         description: 'Melahirkan graduan yang berkualiti, berilmu dan kompeten untuk menceburkan diri dalam pelbagai bidang industri bagi mengaplikasikan Sistem Pengurusan Kualiti (ISO 9001), Sistem Pengurusan Alam Sekitar (ISO 14000), dan Sistem Pengurusan Keselamatan dan Kesihatan (OHSAS 18000).',
       },
@@ -57,6 +63,7 @@ const programCategories = [
     programs: [
       {
         title: 'Diploma In Logistic & Supply Chain',
+        slug: 'logistic-supply-chain',
         image: '/gambar course/logistic.png',
         description: 'Melahirkan graduan yang berkualiti, berilmu dan kompeten dalam industri maritim terutamanya dalam bidang logistik dan rantaian bekalan. Program ini mendedahkan pelajar tentang kaedah dan strategi dalam proses logistik.',
       },
@@ -71,11 +78,13 @@ const programCategories = [
     programs: [
       {
         title: 'Diploma In Offshore Engineering',
+        slug: 'offshore-engineering',
         image: '/gambar course/offshore.png',
         description: 'Melahirkan graduan yang berkualiti yang berpengetahuan dan berkelayakan dalam bidang marin khususnya dalam luar pantai. Program ini memberikan pengetahuan tentang perstruktran dan rekabentuk plantar minyak.',
       },
       {
         title: 'Diploma In Marine Engineering',
+        slug: 'marine-engineering',
         image: '/gambar course/diploma in marine engineering.png',
         description: 'Program ini memberikan pengetahuan tentang kejuruteraan marin khususnya dalam janatenaga marin dan menguruskan operasional dan baikpulih.',
       },
@@ -90,6 +99,7 @@ const programCategories = [
     programs: [
       {
         title: 'Diploma In Culinary Arts',
+        slug: 'culinary-arts',
         image: '/gambar course/culinary.png',
         description: 'Melahirkan graduan berkualiti, berilmu, bersahsiah dan kompeten dalam bidang seni kulinari. Program ini merupakan platform terbaik kepada pelajar dari segi kemahiran asas dan lanjutan kulinari, berpengetahuan berkaitan sistem operasi, kos, penyediaan menu, kebersihan dan keselamatan dalam operasi dapur komersial.',
       },
@@ -195,10 +205,12 @@ export default function Programs() {
                             </p>
 
                             {/* Button */}
-                            <button className="w-full bg-gradient-to-r from-[#FF6B5B] to-[#FF8B6D] text-white font-bold py-3 px-6 rounded-full flex items-center justify-center gap-2 shadow-md hover:shadow-lg transition-shadow">
-                              <span>INFO LANJUT</span>
-                              <ArrowRight className="w-4 h-4" strokeWidth={2.5} />
-                            </button>
+                            <Link href={`/programs/${program.slug}`}>
+                              <button className="w-full bg-gradient-to-r from-[#FF6B5B] to-[#FF8B6D] text-white font-bold py-3 px-6 rounded-full flex items-center justify-center gap-2 shadow-md hover:shadow-lg transition-shadow">
+                                <span>INFO LANJUT</span>
+                                <ArrowRight className="w-4 h-4" strokeWidth={2.5} />
+                              </button>
+                            </Link>
                           </div>
                         </div>
                       ))}
