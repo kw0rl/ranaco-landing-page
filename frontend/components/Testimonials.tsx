@@ -89,25 +89,8 @@ export default function Testimonials() {
 
         {/* Infinite Scroll Container */}
         <div className="relative py-8">
-          {/* Navigation Buttons */}
-          <button
-            onClick={() => scroll('left')}
-            className="absolute left-0 sm:left-2 top-1/2 -translate-y-1/2 z-20 bg-[#FF6B5B] hover:bg-[#054C66] text-white w-10 h-10 sm:w-14 sm:h-14 rounded-full flex items-center justify-center shadow-2xl transition-all duration-300 hover:scale-110 border-2 border-white/30"
-            aria-label="Scroll left"
-          >
-            <ChevronLeft className="w-5 h-5 sm:w-7 sm:h-7" />
-          </button>
-          
-          <button
-            onClick={() => scroll('right')}
-            className="absolute right-0 sm:right-2 top-1/2 -translate-y-1/2 z-20 bg-[#FF6B5B] hover:bg-[#054C66] text-white w-10 h-10 sm:w-14 sm:h-14 rounded-full flex items-center justify-center shadow-2xl transition-all duration-300 hover:scale-110 border-2 border-white/30"
-            aria-label="Scroll right"
-          >
-            <ChevronRight className="w-5 h-5 sm:w-7 sm:h-7" />
-          </button>
-          
           {/* Scrolling Content Wrapper */}
-          <div className="overflow-hidden px-12 sm:px-16">
+          <div className="group overflow-x-hidden py-4">
             <div 
               ref={scrollContainerRef}
               className="overflow-x-hidden py-4"
@@ -117,30 +100,29 @@ export default function Testimonials() {
                 {testimonials.map((testimonial, idx) => (
                 <div
                   key={`first-${idx}`}
-                  className="flex-shrink-0 w-[280px] sm:w-[350px] lg:w-[380px]"
+                  className="flex-shrink-0 w-[90vw] max-w-xs sm:w-[350px] lg:w-[380px]"
                 >
-                  <div className="bg-black/40 backdrop-blur-md rounded-2xl p-6 sm:p-8 border border-white/20 hover:bg-black/50 hover:border-[#FF6B5B]/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl h-full min-h-[400px] sm:min-h-[420px] flex flex-col">
+                  <div className="bg-black/40 backdrop-blur-md rounded-2xl px-2 pt-3 pb-2 sm:p-8 border border-white/20 hover:bg-black/50 hover:border-[#FF6B5B]/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl h-full min-h-[170px] sm:min-h-[420px] flex flex-col">
                     {/* Quote Icon */}
-                    <Quote className="w-10 h-10 sm:w-12 sm:h-12 text-[#FF6B5B] mb-4 sm:mb-6 opacity-70" />
-
+                    <Quote className="w-6 h-6 sm:w-12 sm:h-12 text-[#FF6B5B] mb-2 sm:mb-6 opacity-70 self-start" />
                     {/* Testimonial Text */}
-                    <p className="text-gray-100 leading-relaxed mb-4 sm:mb-6 italic flex-grow text-sm sm:text-[15px]">
-                      {`"${testimonial.quote}"`}
+                    <p className="text-gray-100 leading-snug mb-2 sm:mb-6 flex-grow text-[12px] sm:text-[15px]">
+                      {testimonial.quote}
                     </p>
-
                     {/* Author Info */}
-                    <div className="flex items-center gap-3 sm:gap-4 pt-4 sm:pt-6 border-t border-white/20 mt-auto">
-                      <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center flex-shrink-0 shadow-lg overflow-hidden relative bg-gray-200">
+                    <div className="flex items-center gap-1 sm:gap-4 pt-2 sm:pt-6 border-t border-white/20 mt-auto">
+                      <div className="w-8 h-8 sm:w-16 sm:h-16 rounded-full flex items-center justify-center flex-shrink-0 shadow-lg overflow-hidden relative bg-gray-200">
                         <Image
                           src={testimonial.image}
                           alt={testimonial.name}
                           fill
+                          sizes="(max-width:640px) 40px, 64px"
                           className="object-cover"
                         />
                       </div>
                       <div className="flex-1 min-w-0">
-                        <div className="font-bold text-white text-base sm:text-lg">{testimonial.name}</div>
-                        <div className="text-xs sm:text-sm text-gray-300 truncate">{testimonial.program}</div>
+                        <div className="font-bold text-white text-[12px] sm:text-lg leading-tight">{testimonial.name}</div>
+                        <div className="text-[10px] sm:text-sm text-gray-300 truncate">{testimonial.program}</div>
                       </div>
                     </div>
                   </div>
@@ -151,30 +133,29 @@ export default function Testimonials() {
               {testimonials.map((testimonial, idx) => (
                 <div
                   key={`second-${idx}`}
-                  className="flex-shrink-0 w-[280px] sm:w-[350px] lg:w-[380px]"
+                  className="flex-shrink-0 w-[90vw] max-w-xs sm:w-[350px] lg:w-[380px]"
                 >
-                  <div className="bg-black/40 backdrop-blur-md rounded-2xl p-6 sm:p-8 border border-white/20 hover:bg-black/50 hover:border-[#FF6B5B]/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl h-full min-h-[400px] sm:min-h-[420px] flex flex-col">
+                  <div className="bg-black/40 backdrop-blur-md rounded-2xl px-2 pt-3 pb-2 sm:p-8 border border-white/20 hover:bg-black/50 hover:border-[#FF6B5B]/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl h-full min-h-[170px] sm:min-h-[420px] flex flex-col">
                     {/* Quote Icon */}
-                    <Quote className="w-10 h-10 sm:w-12 sm:h-12 text-[#FF6B5B] mb-4 sm:mb-6 opacity-70" />
-
+                    <Quote className="w-6 h-6 sm:w-12 sm:h-12 text-[#FF6B5B] mb-2 sm:mb-6 opacity-70 self-start" />
                     {/* Testimonial Text */}
-                    <p className="text-gray-100 leading-relaxed mb-4 sm:mb-6 italic flex-grow text-sm sm:text-[15px]">
-                      "{testimonial.quote}"
+                    <p className="text-gray-100 leading-snug mb-2 sm:mb-6 flex-grow text-[12px] sm:text-[15px]">
+                      {testimonial.quote}
                     </p>
-
                     {/* Author Info */}
-                    <div className="flex items-center gap-3 sm:gap-4 pt-4 sm:pt-6 border-t border-white/20 mt-auto">
-                      <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center flex-shrink-0 shadow-lg overflow-hidden relative bg-gray-200">
+                    <div className="flex items-center gap-1 sm:gap-4 pt-2 sm:pt-6 border-t border-white/20 mt-auto">
+                      <div className="w-8 h-8 sm:w-16 sm:h-16 rounded-full flex items-center justify-center flex-shrink-0 shadow-lg overflow-hidden relative bg-gray-200">
                         <Image
                           src={testimonial.image}
                           alt={testimonial.name}
                           fill
+                          sizes="(max-width:640px) 40px, 64px"
                           className="object-cover"
                         />
                       </div>
                       <div className="flex-1 min-w-0">
-                        <div className="font-bold text-white text-base sm:text-lg">{testimonial.name}</div>
-                        <div className="text-xs sm:text-sm text-gray-300 truncate">{testimonial.program}</div>
+                        <div className="font-bold text-white text-[12px] sm:text-lg leading-tight">{testimonial.name}</div>
+                        <div className="text-[10px] sm:text-sm text-gray-300 truncate">{testimonial.program}</div>
                       </div>
                     </div>
                   </div>
@@ -182,6 +163,23 @@ export default function Testimonials() {
                 ))}
               </div>
             </div>
+          </div>
+          {/* Navigation Buttons */}
+          <div className="flex justify-center gap-5 mt-4 sm:mt-0 sm:block">
+            <button
+              onClick={() => scroll('left')}
+              className="sm:absolute left-0 sm:left-2 top-1/2 sm:-translate-y-1/2 z-20 p-0 bg-transparent border-none rounded-none shadow-none w-auto h-auto text-white hover:text-[#FF6B5B] transition-colors duration-200 cursor-pointer"
+              aria-label="Scroll left"
+            >
+              <ChevronLeft className="w-10 h-10 sm:w-14 sm:h-14" />
+            </button>
+            <button
+              onClick={() => scroll('right')}
+              className="sm:absolute right-0 sm:right-2 top-1/2 sm:-translate-y-1/2 z-20 p-0 bg-transparent border-none rounded-none shadow-none w-auto h-auto text-white hover:text-[#FF6B5B] transition-colors duration-200 cursor-pointer"
+              aria-label="Scroll right"
+            >
+              <ChevronRight className="w-10 h-10 sm:w-14 sm:h-14" />
+            </button>
           </div>
         </div>
 
@@ -197,6 +195,9 @@ export default function Testimonials() {
 
           .animate-scroll {
             animation: scroll 50s linear infinite;
+          }
+          .group:hover .animate-scroll, .group:active .animate-scroll {
+            animation-play-state: paused !important;
           }
         `}</style>
 
@@ -227,10 +228,10 @@ export default function Testimonials() {
                     const container = document.getElementById('video-slider');
                     if (container) container.scrollBy({ left: -340, behavior: 'smooth' });
                   }}
-                  className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-[#FF6B5B] hover:bg-[#054C66] text-white w-12 h-12 rounded-full flex items-center justify-center shadow-2xl transition-all duration-300 hover:scale-110 border-2 border-white/30"
+                  className="absolute left-[-36px] top-1/2 -translate-y-1/2 z-10 p-0 bg-transparent border-none rounded-none shadow-none w-auto h-auto text-white hover:text-[#FF6B5B] transition-colors duration-200 cursor-pointer md:left-0"
                   aria-label="Scroll left"
                 >
-                  <ChevronLeft className="w-6 h-6" />
+                  <ChevronLeft className="w-10 h-10 sm:w-14 sm:h-14" />
                 </button>
 
                 {/* Right Arrow */}
@@ -239,13 +240,13 @@ export default function Testimonials() {
                     const container = document.getElementById('video-slider');
                     if (container) container.scrollBy({ left: 340, behavior: 'smooth' });
                   }}
-                  className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-[#FF6B5B] hover:bg-[#054C66] text-white w-12 h-12 rounded-full flex items-center justify-center shadow-2xl transition-all duration-300 hover:scale-110 border-2 border-white/30"
+                  className="absolute right-[-36px] top-1/2 -translate-y-1/2 z-10 p-0 bg-transparent border-none rounded-none shadow-none w-auto h-auto text-white hover:text-[#FF6B5B] transition-colors duration-200 cursor-pointer md:right-0"
                   aria-label="Scroll right"
                 >
-                  <ChevronRight className="w-6 h-6" />
+                  <ChevronRight className="w-10 h-10 sm:w-14 sm:h-14" />
                 </button>
 
-                <div className="overflow-hidden px-16">
+                <div className="overflow-hidden px-2 sm:px-16">
                   <div id="video-slider" className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide snap-x snap-mandatory">
                   {[
                     { id: 'ZYBSfVMyaxw', title: 'Majlis Konvokesyen Ranaco Ke-13' },
@@ -259,7 +260,7 @@ export default function Testimonials() {
                   ].map((video, idx) => (
                     <div
                       key={idx}
-                      className="flex-shrink-0 w-80 snap-start"
+                      className="flex-shrink-0 w-full max-w-xs sm:w-80 snap-start"
                     >
                       <div className="bg-white/5 rounded-xl overflow-hidden border border-white/10 hover:border-[#FF6B5B]/50 transition-all duration-300 hover:scale-105">
                         <div className="aspect-video">
