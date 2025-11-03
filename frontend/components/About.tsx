@@ -1,6 +1,54 @@
 'use client';
 
 import { Building2, Award, Users } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
+
+// Counter component: animates from 0 to target when visible
+function Counter({ end, duration = 1500, suffix = '' }: { end: number; duration?: number; suffix?: string }) {
+  const [value, setValue] = useState(0);
+  const [hasRun, setHasRun] = useState(false);
+  const ref = useRef<HTMLSpanElement | null>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !hasRun) {
+            setHasRun(true);
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [hasRun]);
+
+  useEffect(() => {
+    if (!hasRun) return;
+    let start: number | null = null;
+    const startVal = 0;
+    const animate = (timestamp: number) => {
+      if (start === null) start = timestamp;
+      const progress = Math.min((timestamp - start) / duration, 1);
+      const current = Math.floor(startVal + (end - startVal) * progress);
+      setValue(current);
+      if (progress < 1) requestAnimationFrame(animate);
+    };
+    const raf = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(raf);
+  }, [hasRun, duration, end]);
+
+  const formatted = new Intl.NumberFormat('en-US').format(value);
+  return (
+    <span ref={ref}>
+      {formatted}
+      {suffix}
+    </span>
+  );
+}
 
 export default function About() {
   return (
@@ -77,33 +125,28 @@ export default function About() {
           </a>
         </div>
 
-        {/* Stats Icons Bottom */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto" data-aos="fade-up" data-aos-delay="300">
+        {/* Animated Stats */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto" data-aos="fade-up" data-aos-delay="300">
           {/* Stat 1 */}
-          <div className="flex flex-col items-center text-center group">
-            <div className="bg-[#4A90E2] w-20 h-20 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-              <Building2 className="w-10 h-10 text-white" />
+          <div className="text-center bg-white/10 backdrop-blur-sm rounded-2xl px-6 py-6 border border-white/20 hover:bg-white/15 transition-all duration-300">
+            <div className="text-3xl sm:text-4xl font-extrabold text-white">
+              <Counter end={20} suffix="+" />
             </div>
-            <h3 className="text-3xl font-bold text-white mb-2">20+</h3>
-            <p className="text-white/80 font-medium">Tahun Beroperasi</p>
+            <div className="text-sm sm:text-base text-gray-200 mt-2">Tahun Beroperasi</div>
           </div>
-
           {/* Stat 2 */}
-          <div className="flex flex-col items-center text-center group">
-            <div className="bg-[#FF6B5B] w-20 h-20 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-              <Award className="w-10 h-10 text-white" />
+          <div className="text-center bg-white/10 backdrop-blur-sm rounded-2xl px-6 py-6 border border-white/20 hover:bg-white/15 transition-all duration-300">
+            <div className="text-3xl sm:text-4xl font-extrabold text-white">
+              <Counter end={100} suffix="%" />
             </div>
-            <h3 className="text-3xl font-bold text-white mb-2">100%</h3>
-            <p className="text-white/80 font-medium">Sijil Industri Percuma</p>
+            <div className="text-sm sm:text-base text-gray-200 mt-2">Sijil Industri Percuma</div>
           </div>
-
           {/* Stat 3 */}
-          <div className="flex flex-col items-center text-center group">
-            <div className="bg-green-500 w-20 h-20 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-              <Users className="w-10 h-10 text-white" />
+          <div className="text-center bg-white/10 backdrop-blur-sm rounded-2xl px-6 py-6 border border-white/20 hover:bg-white/15 transition-all duration-300">
+            <div className="text-3xl sm:text-4xl font-extrabold text-white">
+              <Counter end={10000} suffix="+" />
             </div>
-            <h3 className="text-3xl font-bold text-white mb-2">10,000+</h3>
-            <p className="text-white/80 font-medium">Graduan Berjaya</p>
+            <div className="text-sm sm:text-base text-gray-200 mt-2">Graduan Berjaya</div>
           </div>
         </div>
       </div>
