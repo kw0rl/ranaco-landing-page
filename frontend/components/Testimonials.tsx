@@ -92,45 +92,45 @@ export default function Testimonials() {
           {/* Navigation Buttons */}
           <button
             onClick={() => scroll('left')}
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-[#FF6B5B] hover:bg-[#054C66] text-white w-14 h-14 rounded-full flex items-center justify-center shadow-2xl transition-all duration-300 hover:scale-110 border-2 border-white/30"
+            className="absolute left-0 sm:left-2 top-1/2 -translate-y-1/2 z-20 bg-[#FF6B5B] hover:bg-[#054C66] text-white w-10 h-10 sm:w-14 sm:h-14 rounded-full flex items-center justify-center shadow-2xl transition-all duration-300 hover:scale-110 border-2 border-white/30"
             aria-label="Scroll left"
           >
-            <ChevronLeft className="w-7 h-7" />
+            <ChevronLeft className="w-5 h-5 sm:w-7 sm:h-7" />
           </button>
           
           <button
             onClick={() => scroll('right')}
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-20 bg-[#FF6B5B] hover:bg-[#054C66] text-white w-14 h-14 rounded-full flex items-center justify-center shadow-2xl transition-all duration-300 hover:scale-110 border-2 border-white/30"
+            className="absolute right-0 sm:right-2 top-1/2 -translate-y-1/2 z-20 bg-[#FF6B5B] hover:bg-[#054C66] text-white w-10 h-10 sm:w-14 sm:h-14 rounded-full flex items-center justify-center shadow-2xl transition-all duration-300 hover:scale-110 border-2 border-white/30"
             aria-label="Scroll right"
           >
-            <ChevronRight className="w-7 h-7" />
+            <ChevronRight className="w-5 h-5 sm:w-7 sm:h-7" />
           </button>
           
           {/* Scrolling Content Wrapper */}
-          <div className="overflow-hidden px-16">
+          <div className="overflow-hidden px-12 sm:px-16">
             <div 
               ref={scrollContainerRef}
               className="overflow-x-hidden py-4"
             >
-              <div className="flex gap-6 animate-scroll">
+              <div className="flex gap-4 sm:gap-6 animate-scroll">
                 {/* First set of testimonials */}
                 {testimonials.map((testimonial, idx) => (
                 <div
                   key={`first-${idx}`}
-                  className="flex-shrink-0 w-[380px]"
+                  className="flex-shrink-0 w-[280px] sm:w-[350px] lg:w-[380px]"
                 >
-                  <div className="bg-black/40 backdrop-blur-md rounded-2xl p-8 border border-white/20 hover:bg-black/50 hover:border-[#FF6B5B]/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl h-full min-h-[420px] flex flex-col">
+                  <div className="bg-black/40 backdrop-blur-md rounded-2xl p-6 sm:p-8 border border-white/20 hover:bg-black/50 hover:border-[#FF6B5B]/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl h-full min-h-[400px] sm:min-h-[420px] flex flex-col">
                     {/* Quote Icon */}
-                    <Quote className="w-12 h-12 text-[#FF6B5B] mb-6 opacity-70" />
+                    <Quote className="w-10 h-10 sm:w-12 sm:h-12 text-[#FF6B5B] mb-4 sm:mb-6 opacity-70" />
 
                     {/* Testimonial Text */}
-                    <p className="text-gray-100 leading-relaxed mb-6 italic flex-grow text-[15px]">
+                    <p className="text-gray-100 leading-relaxed mb-4 sm:mb-6 italic flex-grow text-sm sm:text-[15px]">
                       {`"${testimonial.quote}"`}
                     </p>
 
                     {/* Author Info */}
-                    <div className="flex items-center gap-4 pt-6 border-t border-white/20 mt-auto">
-                      <div className="w-16 h-16 rounded-full flex items-center justify-center flex-shrink-0 shadow-lg overflow-hidden relative bg-gray-200">
+                    <div className="flex items-center gap-3 sm:gap-4 pt-4 sm:pt-6 border-t border-white/20 mt-auto">
+                      <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center flex-shrink-0 shadow-lg overflow-hidden relative bg-gray-200">
                         <Image
                           src={testimonial.image}
                           alt={testimonial.name}
@@ -139,8 +139,8 @@ export default function Testimonials() {
                         />
                       </div>
                       <div className="flex-1 min-w-0">
-                        <div className="font-bold text-white text-lg">{testimonial.name}</div>
-                        <div className="text-sm text-gray-300 truncate">{testimonial.program}</div>
+                        <div className="font-bold text-white text-base sm:text-lg">{testimonial.name}</div>
+                        <div className="text-xs sm:text-sm text-gray-300 truncate">{testimonial.program}</div>
                       </div>
                     </div>
                   </div>
@@ -151,20 +151,20 @@ export default function Testimonials() {
               {testimonials.map((testimonial, idx) => (
                 <div
                   key={`second-${idx}`}
-                  className="flex-shrink-0 w-[380px]"
+                  className="flex-shrink-0 w-[280px] sm:w-[350px] lg:w-[380px]"
                 >
-                  <div className="bg-black/40 backdrop-blur-md rounded-2xl p-8 border border-white/20 hover:bg-black/50 hover:border-[#FF6B5B]/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl h-full min-h-[420px] flex flex-col">
+                  <div className="bg-black/40 backdrop-blur-md rounded-2xl p-6 sm:p-8 border border-white/20 hover:bg-black/50 hover:border-[#FF6B5B]/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl h-full min-h-[400px] sm:min-h-[420px] flex flex-col">
                     {/* Quote Icon */}
-                    <Quote className="w-12 h-12 text-[#FF6B5B] mb-6 opacity-70" />
+                    <Quote className="w-10 h-10 sm:w-12 sm:h-12 text-[#FF6B5B] mb-4 sm:mb-6 opacity-70" />
 
                     {/* Testimonial Text */}
-                    <p className="text-gray-100 leading-relaxed mb-6 italic flex-grow text-[15px]">
+                    <p className="text-gray-100 leading-relaxed mb-4 sm:mb-6 italic flex-grow text-sm sm:text-[15px]">
                       "{testimonial.quote}"
                     </p>
 
                     {/* Author Info */}
-                    <div className="flex items-center gap-4 pt-6 border-t border-white/20 mt-auto">
-                      <div className="w-16 h-16 rounded-full flex items-center justify-center flex-shrink-0 shadow-lg overflow-hidden relative bg-gray-200">
+                    <div className="flex items-center gap-3 sm:gap-4 pt-4 sm:pt-6 border-t border-white/20 mt-auto">
+                      <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center flex-shrink-0 shadow-lg overflow-hidden relative bg-gray-200">
                         <Image
                           src={testimonial.image}
                           alt={testimonial.name}
@@ -173,8 +173,8 @@ export default function Testimonials() {
                         />
                       </div>
                       <div className="flex-1 min-w-0">
-                        <div className="font-bold text-white text-lg">{testimonial.name}</div>
-                        <div className="text-sm text-gray-300 truncate">{testimonial.program}</div>
+                        <div className="font-bold text-white text-base sm:text-lg">{testimonial.name}</div>
+                        <div className="text-xs sm:text-sm text-gray-300 truncate">{testimonial.program}</div>
                       </div>
                     </div>
                   </div>

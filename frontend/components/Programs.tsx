@@ -136,27 +136,27 @@ export default function Programs() {
                 {/* Accordion Header */}
                 <button
                   onClick={() => toggleAccordion(category.id)}
-                  className="w-full px-8 py-6 flex items-center justify-between hover:bg-gray-50 transition-colors"
+                  className="w-full px-4 sm:px-8 py-6 flex items-center justify-between hover:bg-gray-50 transition-colors"
                 >
-                  <div className="flex items-center gap-4">
-                    <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${category.color} flex items-center justify-center shadow-lg`}>
-                      <Icon className="w-8 h-8 text-white" strokeWidth={2} />
+                  <div className="flex items-center gap-3 sm:gap-4">
+                    <div className={`w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-gradient-to-br ${category.color} flex items-center justify-center shadow-lg flex-shrink-0`}>
+                      <Icon className="w-7 h-7 sm:w-8 sm:h-8 text-white" strokeWidth={2} />
                     </div>
                     <div className="text-left">
-                      <h3 className="text-2xl font-bold text-gray-900 mb-1">
+                      <h3 className="text-lg sm:text-2xl font-bold text-gray-900 mb-1">
                         {category.name}
                       </h3>
-                      <p className="text-sm text-gray-600">{category.description}</p>
-                      <span className="inline-block mt-2 text-xs font-semibold text-[#FF6B5B]">
+                      <p className="text-xs sm:text-sm text-gray-600 hidden sm:block">{category.description}</p>
+                      <span className="inline-block mt-1 sm:mt-2 text-xs font-semibold text-[#FF6B5B]">
                         {category.programs.length} Program Tersedia
                       </span>
                     </div>
                   </div>
-                  <div className="flex-shrink-0">
+                  <div className="flex-shrink-0 ml-2">
                     {isOpen ? (
-                      <ChevronUp className="w-8 h-8 text-[#FF6B5B]" strokeWidth={2.5} />
+                      <ChevronUp className="w-6 h-6 sm:w-8 sm:h-8 text-[#FF6B5B]" strokeWidth={2.5} />
                     ) : (
-                      <ChevronDown className="w-8 h-8 text-gray-400" strokeWidth={2.5} />
+                      <ChevronDown className="w-6 h-6 sm:w-8 sm:h-8 text-gray-400" strokeWidth={2.5} />
                     )}
                   </div>
                 </button>
@@ -167,8 +167,8 @@ export default function Programs() {
                     isOpen ? 'max-h-[5000px] opacity-100' : 'max-h-0 opacity-0'
                   } overflow-hidden`}
                 >
-                  <div className="px-8 pb-8 pt-4">
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  <div className="px-4 sm:px-8 pb-8 pt-4">
+                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                       {category.programs.map((program, idx) => (
                         <div
                           key={idx}

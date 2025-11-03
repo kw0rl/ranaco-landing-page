@@ -5,7 +5,7 @@ import { Briefcase, Award, Building2, GraduationCap, Users, DollarSign } from 'l
 const features = [
   {
     icon: Briefcase,
-    title: 'Jaminan Kerja Selepas Tamat Pengajian',
+    title: 'Kebolehpasaran Kerja Graduan yang Tinggi',
     description: '75% graduan kami mendapat pekerjaan dalam tempoh 6 bulan selepas tamat pengajian',
     color: 'bg-blue-500'
   },
