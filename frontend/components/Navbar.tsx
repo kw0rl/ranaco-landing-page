@@ -2,11 +2,13 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Menu, X, Phone, Mail, MapPin } from 'lucide-react';
+import { Menu, X, Phone, Mail, MapPin, ChevronDown } from 'lucide-react';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isProgramsDropdownOpen, setIsProgramsDropdownOpen] = useState(false);
+  const [isMobileProgramsOpen, setIsMobileProgramsOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,9 +20,20 @@ export default function Navbar() {
 
   const navLinks = [
     { href: '/#utama', label: 'UTAMA' },
-    { href: '/#programs', label: 'PROGRAM DITAWARKAN' },
     { href: '/#kenapa', label: 'KENAPA KAMI' },
     { href: '/#testimoni', label: 'TESTIMONI' },
+  ];
+
+  const programs = [
+    { title: 'Maritime Management', slug: 'maritime-management' },
+    { title: 'Marine Cargo Surveying', slug: 'marine-cargo-surveying' },
+    { title: 'Nautical Studies', slug: 'nautical-studies' },
+    { title: 'Marine Engineering', slug: 'marine-engineering' },
+    { title: 'Occupational Safety & Health', slug: 'occupational-safety-health' },
+    { title: 'Integrated Management System', slug: 'integrated-management-system' },
+    { title: 'Logistic & Supply Chain', slug: 'logistic-supply-chain' },
+    { title: 'Offshore Engineering', slug: 'offshore-engineering' },
+    { title: 'Culinary Arts', slug: 'culinary-arts' },
   ];
 
   return (
@@ -96,6 +109,56 @@ export default function Navbar() {
                   {link.label}
                 </a>
               ))}
+              
+              {/* Program Ditawarkan Dropdown */}
+              <div 
+                className="relative group"
+                onMouseEnter={() => setIsProgramsDropdownOpen(true)}
+                onMouseLeave={() => setIsProgramsDropdownOpen(false)}
+              >
+                <button
+                  className="flex items-center space-x-1 text-[#1A2332] hover:text-[#FF6B5B] font-medium text-sm transition-colors duration-200"
+                >
+                  <span>PROGRAM DITAWARKAN</span>
+                  <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isProgramsDropdownOpen ? 'rotate-180' : ''}`} />
+                </button>
+                
+                {/* Invisible bridge to prevent gap */}
+                {isProgramsDropdownOpen && (
+                  <div className="absolute top-full left-0 right-0 h-2" />
+                )}
+                
+                {/* Dropdown Menu */}
+                {isProgramsDropdownOpen && (
+                  <div className="absolute top-full left-0 pt-2 z-50">
+                    <div className="w-72 bg-white rounded-xl shadow-2xl border border-gray-100 py-3 animate-fadeIn">
+                      <div className="px-4 py-2 border-b border-gray-100">
+                        <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide">Pilih Program</p>
+                      </div>
+                      <div className="max-h-96 overflow-y-auto">
+                        {programs.map((program) => (
+                          <a
+                            key={program.slug}
+                            href={`/programs/${program.slug}`}
+                            className="block px-4 py-3 text-sm text-[#1A2332] hover:bg-[#FF6B5B]/5 hover:text-[#FF6B5B] transition-colors duration-150"
+                          >
+                            {program.title}
+                          </a>
+                        ))}
+                      </div>
+                      <div className="px-4 py-2 border-t border-gray-100 mt-2">
+                        <a
+                          href="/#programs"
+                          className="text-xs font-semibold text-[#FF6B5B] hover:text-[#ff5544] transition-colors"
+                        >
+                          Lihat Semua Program →
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+              
               <a
                 href="/#daftar"
                 className="bg-[#FF6B5B] text-white px-6 py-3 rounded-full font-semibold hover:bg-[#ff5544] transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
@@ -151,6 +214,39 @@ export default function Navbar() {
                   {link.label}
                 </a>
               ))}
+              
+              {/* Mobile Program Ditawarkan Dropdown */}
+              <div>
+                <button
+                  onClick={() => setIsMobileProgramsOpen(!isMobileProgramsOpen)}
+                  className="w-full flex items-center justify-between text-[#1A2332] hover:text-[#FF6B5B] hover:bg-gray-50 font-medium py-3 px-4 rounded-lg transition-colors"
+                >
+                  <span>PROGRAM DITAWARKAN</span>
+                  <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isMobileProgramsOpen ? 'rotate-180' : ''}`} />
+                </button>
+                
+                {isMobileProgramsOpen && (
+                  <div className="mt-2 ml-4 space-y-1">
+                    {programs.map((program) => (
+                      <a
+                        key={program.slug}
+                        href={`/programs/${program.slug}`}
+                        className="block text-sm text-[#1A2332] hover:text-[#FF6B5B] hover:bg-gray-50 py-2 px-4 rounded-lg transition-colors"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        {program.title}
+                      </a>
+                    ))}
+                    <a
+                      href="/#programs"
+                      className="block text-sm font-semibold text-[#FF6B5B] hover:text-[#ff5544] py-2 px-4 rounded-lg transition-colors"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      Lihat Semua →
+                    </a>
+                  </div>
+                )}
+              </div>
             </div>
 
             {/* Bottom Button */}
