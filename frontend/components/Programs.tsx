@@ -16,13 +16,13 @@ const programCategories = [
       {
         title: 'Diploma In Marine Cargo Surveying',
         slug: 'marine-cargo-surveying',
-        image: '/gambar course/diploma in marine cargo.png',
+        image: '/program card img/marine cargo card.jpeg',
         description: 'Melahirkan graduan yang berkualiti, berilmu dan kompeten dalam survey and inspection management, perkapalan, logistik dan pengangkutan, dan import support.',
       },
       {
         title: 'Diploma In Maritime Management',
         slug: 'maritime-management',
-        image: '/gambar course/diploma in maritime management.png',
+        image: '/program card img/maritime management card.jpeg',
         description: 'Program ini memberi pendedahan kepada pelajar tentang prosedur sebenar pengurusan dalam sektor maritim seperti pengurusan pelabuhan, perkapalan, pengendalian kargo serta perdagangan antarabangsa.',
       },
       {
@@ -49,13 +49,13 @@ const programCategories = [
       {
         title: 'Diploma In Occupational Safety & Health',
         slug: 'occupational-safety-health',
-        image: '/gambar course/occupational safety health.png',
+        image: '/program card img/safety and health card.jpeg',
         description: 'Melahirkan graduan yang berkualiti, berilmu dan kompeten untuk menceburkan diri dalam bidang pengurusan keselamatan dan kesihatan pekerjaan. Program ini mendapat perakuan daripada JKKP.',
       },
       {
         title: 'Diploma In Integrated Management System',
         slug: 'integrated-management-system',
-        image: '/gambar course/integrated management.png',
+        image: '/program card img/integrated management system card.jpeg',
         description: 'Melahirkan graduan yang berkualiti, berilmu dan kompeten untuk menceburkan diri dalam pelbagai bidang industri bagi mengaplikasikan Sistem Pengurusan Kualiti (ISO 9001), Sistem Pengurusan Alam Sekitar (ISO 14000), dan Sistem Pengurusan Keselamatan dan Kesihatan (OHSAS 18000).',
       },
     ]
@@ -70,7 +70,7 @@ const programCategories = [
       {
         title: 'Diploma In Logistic & Supply Chain',
         slug: 'logistic-supply-chain',
-        image: '/gambar course/logistic.png',
+        image: '/program card img/logistic card.jpeg',
         description: 'Melahirkan graduan yang berkualiti, berilmu dan kompeten dalam industri maritim terutamanya dalam bidang logistik dan rantaian bekalan. Program ini mendedahkan pelajar tentang kaedah dan strategi dalam proses logistik.',
       },
     ]
@@ -85,7 +85,7 @@ const programCategories = [
       {
         title: 'Diploma In Offshore Engineering',
         slug: 'offshore-engineering',
-        image: '/gambar course/offshore.png',
+        image: '/program card img/offshore engineering card.jpeg',
         description: 'Melahirkan graduan yang berkualiti yang berpengetahuan dan berkelayakan dalam bidang marin khususnya dalam luar pantai. Program ini memberikan pengetahuan tentang perstruktran dan rekabentuk plantar minyak.',
       },
     ]
@@ -100,7 +100,7 @@ const programCategories = [
       {
         title: 'Diploma In Culinary Arts',
         slug: 'culinary-arts',
-        image: '/gambar course/culinary.png',
+        image: '/program card img/culinary card.jpeg',
         description: 'Melahirkan graduan berkualiti, berilmu, bersahsiah dan kompeten dalam bidang seni kulinari. Program ini merupakan platform terbaik kepada pelajar dari segi kemahiran asas dan lanjutan kulinari, berpengetahuan berkaitan sistem operasi, kos, penyediaan menu, kebersihan dan keselamatan dalam operasi dapur komersial.',
       },
     ]
