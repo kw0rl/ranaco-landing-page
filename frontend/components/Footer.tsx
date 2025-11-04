@@ -43,13 +43,26 @@ export default function Footer() {
           <div>
             <h3 className="font-bold text-lg mb-6">Menu</h3>
             <ul className="space-y-3">
-              {['Utama', 'Program Ditawarkan', 'Blog', 'Hubungi Kami', 'Daftar Sekarang!'].map((item) => (
-                <li key={item}>
-                  <a href="#" className="text-gray-400 hover:text-[#FF6B5B] transition-colors text-sm">
-                    {item}
-                  </a>
-                </li>
-              ))}
+              <li>
+                <a href="/#utama" className="text-gray-400 hover:text-[#FF6B5B] transition-colors text-sm">
+                  Utama
+                </a>
+              </li>
+              <li>
+                <a href="/#programs" className="text-gray-400 hover:text-[#FF6B5B] transition-colors text-sm">
+                  Program Ditawarkan
+                </a>
+              </li>
+              <li>
+                <a href="/#footer" className="text-gray-400 hover:text-[#FF6B5B] transition-colors text-sm">
+                  Hubungi Kami
+                </a>
+              </li>
+              <li>
+                <a href="/#daftar" className="text-gray-400 hover:text-[#FF6B5B] transition-colors text-sm">
+                  Daftar Sekarang!
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -57,20 +70,51 @@ export default function Footer() {
           <div>
             <h3 className="font-bold text-lg mb-6">Program Popular</h3>
             <ul className="space-y-3">
-              {[
-                'Maritime Management',
-                'Marine Cargo Surveying',
-                'Safety & Health',
-                'Logistic & Supply Chain',
-                'Offshore Engineering',
-                'Culinary Arts'
-              ].map((item) => (
-                <li key={item}>
-                  <a href="#" className="text-gray-400 hover:text-[#FF6B5B] transition-colors text-sm">
-                    {item}
-                  </a>
-                </li>
-              ))}
+              <li>
+                <a href="/programs/maritime-management" className="text-gray-400 hover:text-[#FF6B5B] transition-colors text-sm">
+                  Maritime Management
+                </a>
+              </li>
+              <li>
+                <a href="/programs/marine-cargo-surveying" className="text-gray-400 hover:text-[#FF6B5B] transition-colors text-sm">
+                  Marine Cargo Surveying
+                </a>
+              </li>
+              <li>
+                <a href="/programs/nautical-studies" className="text-gray-400 hover:text-[#FF6B5B] transition-colors text-sm">
+                  Nautical
+                </a>
+              </li>
+              <li>
+                <a href="/programs/marine-engineering" className="text-gray-400 hover:text-[#FF6B5B] transition-colors text-sm">
+                  Marine Engineering
+                </a>
+              </li>
+              <li>
+                <a href="/programs/occupational-safety-health" className="text-gray-400 hover:text-[#FF6B5B] transition-colors text-sm">
+                  Safety & Health
+                </a>
+              </li>
+              <li>
+                <a href="/programs/integrated-management-system" className="text-gray-400 hover:text-[#FF6B5B] transition-colors text-sm">
+                  Integrated Management System
+                </a>
+              </li>
+              <li>
+                <a href="/programs/logistic-supply-chain" className="text-gray-400 hover:text-[#FF6B5B] transition-colors text-sm">
+                  Logistic & Supply Chain
+                </a>
+              </li>
+              <li>
+                <a href="/programs/offshore-engineering" className="text-gray-400 hover:text-[#FF6B5B] transition-colors text-sm">
+                  Offshore Engineering
+                </a>
+              </li>
+              <li>
+                <a href="/programs/culinary-arts" className="text-gray-400 hover:text-[#FF6B5B] transition-colors text-sm">
+                  Culinary Arts
+                </a>
+              </li>
             </ul>
           </div>
 
