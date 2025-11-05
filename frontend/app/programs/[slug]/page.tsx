@@ -4,6 +4,7 @@ import { ArrowLeft, CheckCircle, GraduationCap, Briefcase, BookOpen, Award, File
 import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import { MobileMenuProvider } from '@/contexts/MobileMenuContext';
 
 // Course data
 const coursesData: Record<string, any> = {
@@ -376,7 +377,7 @@ export default async function CoursePage({ params }: { params: Promise<{ slug: s
   }
 
   return (
-    <>
+    <MobileMenuProvider>
       <Navbar />
       <main className='min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-gray-100'>
         {/* Hero Section with Background Image */}
@@ -538,6 +539,6 @@ export default async function CoursePage({ params }: { params: Promise<{ slug: s
       </div>
     </main>
     <Footer />
-    </>
+    </MobileMenuProvider>
   );
 }

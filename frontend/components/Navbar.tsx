@@ -3,10 +3,11 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Menu, X, Phone, Mail, MapPin, ChevronDown } from 'lucide-react';
+import { useMobileMenu } from '@/contexts/MobileMenuContext';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { isMobileMenuOpen, setIsMobileMenuOpen } = useMobileMenu();
   const [isProgramsDropdownOpen, setIsProgramsDropdownOpen] = useState(false);
   const [isMobileProgramsOpen, setIsMobileProgramsOpen] = useState(false);
 

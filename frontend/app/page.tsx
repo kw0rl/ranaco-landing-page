@@ -8,20 +8,23 @@ import Testimonials from '@/components/Testimonials';
 import CTA from '@/components/CTA';
 import Footer from '@/components/Footer';
 import ScrollToTop from '@/components/ScrollToTop';
+import { MobileMenuProvider } from '@/contexts/MobileMenuContext';
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
-      <Navbar />
-      <Hero />
-      <InfoBanner />
-      <Features />
-      <About />
-      <Programs />
-      <Testimonials />
-      <CTA />
-      <Footer />
-      <ScrollToTop />
-    </main>
+    <MobileMenuProvider>
+      <main className="min-h-screen">
+        <Navbar />
+        <Hero />
+        <InfoBanner />
+        <Features />
+        <About />
+        <Programs />
+        <Testimonials />
+        <CTA />
+        <Footer />
+        <ScrollToTop />
+      </main>
+    </MobileMenuProvider>
   );
 }
