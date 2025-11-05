@@ -1,58 +1,80 @@
 'use client';
 
-import React from 'react';
-import { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { Quote, ChevronLeft, ChevronRight } from 'lucide-react';
 import Image from 'next/image';
+import { gsap } from 'gsap';
 
 const testimonials = [
   {
     name: 'Amir Naim',
-    program: 'Marine Cargo Surveying',
+    program: 'Diploma in Marine Cargo Surveying',
     image: '/alumni/alumni-Amir-Naim.png',
     quote: 'Sebagai bekas pelajar jurusan Marine Cargo Surveying, saya kini sudah 5 tahun bekerja sebagai process technician di Singapura bersama syarikat Air Liquid Singapore. All the best Ranaco and thanks for all the knowledge that I get from all the lecturers. Mungkin rezeki saya dalam bidang Marine Survey tak panjang tetapi di atas tiket Diploma yang saya dapat dari Ranaco, saya Berjaya bina kerjaya di Ranaco dalam industri Petrochemical & Gas. SAYA BANGGA DENGAN RANACO!!'
   },
   {
     name: 'Uswatun',
-    program: 'Occupational Safety & Health',
+    program: 'Degree in Management',
     image: '/alumni/alumni-Uswatun.png',
     quote: 'Ranaco adalah antara institusi yang menyediakan tawaran pengajian yang relevan dengan perkembangan dan permintaan semasa industri. Selain itu, pendedahan pembelajaran yang menyeluruh dari pensyarah yang berkaliber dan berpengalaman sangat membantu untuk menjadi graduan kompeten. Syabas Ranaco!'
   },
   {
     name: 'Ikram',
-    program: 'Maritime Management',
+    program: 'Diploma in Integrated Management System',
     image: '/alumni/alumni-Ikram.png',
     quote: 'Sepanjang saya belajar di Ranaco, pelbagai ilmu dan perkongsian pengalaman kerja dari tenaga pengajar. Silibus dalam setiap pelajaran yang mencukupi, ringkas dan lengkap serta mudah difahami untuk dipelajari. Saya juga banyak mengikuti latihan dan menyertai pasukan ragbi serta pasukan Rejimen Askar Wataniah dalam tempoh tersebut.'
   },
   {
     name: 'Haziq',
-    program: 'Port Management',
+    program: 'Diploma in Occupational Safety & Health',
     image: '/alumni/alumni-Haziq.png',
     quote: 'Ranaco banyak mengajar dari sudut teori dan praktikal bukan sahaja di sesi kuliah malah juga di sesi tidak langsung. Isi kandungan silibus juga sentiasa dikemaskini seiring dengan isu-isu semasa yang berbangkit di lapangan industri. Teknik sesi pembelajaran 2 hala juga menarik perhatian saya untuk lebih fokus ketika belajar. Pengalaman yang tidak dapat dibeli adalah bila dapat berborak dengan otai-otai industri yang berada di sekitar Kemaman. Banyak ilmu dan manfaat yang telah dikongsi bersama.'
   },
   {
     name: 'Effa',
-    program: 'Maritime Law & Insurance',
+    program: 'Diploma in Occupational Safety & Health',
     image: '/alumni/alumni-Effa.png',
     quote: 'Saya memilih Ranaco kerana Ranaco antara institut yang terkenal dengan pencapaian pelajar-pelajar yang cemerlang dalam bidang yang dipilih seperti bidang OSH, bidang maritim dan sebagainya. Selain daripada itu, Ranaco juga menawarkan yuran kursus yang murah berbanding institut pengajian yang lain serta silibus yang diperakui oleh MQA. SAYA JUGA MEMILIH Ranaco kerana program OSH yang menjadi pilihan saya mendapat perakuan daripada Jabatan Kesihatan dan Keselamatan Pekerjaan (JKKP).'
   }
 ];
 
 export default function Testimonials() {
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const cardsRef = useRef<HTMLDivElement>(null);
+  const animationRef = useRef<gsap.core.Tween | null>(null);
 
-  const scroll = (direction: 'left' | 'right') => {
-    if (scrollContainerRef.current) {
-      const scrollAmount = 386; // card width (380px) + gap (6px)
-      const currentScroll = scrollContainerRef.current.scrollLeft;
-      const targetScroll = direction === 'left' 
-        ? currentScroll - scrollAmount 
-        : currentScroll + scrollAmount;
-      
-      scrollContainerRef.current.scrollTo({
-        left: targetScroll,
-        behavior: 'smooth'
+  useEffect(() => {
+    if (cardsRef.current) {
+      const cardWidth = 386; // card width (380px) + gap (6px)
+      const totalWidth = cardWidth * testimonials.length;
+
+      // Create seamless loop animation
+      animationRef.current = gsap.to(cardsRef.current, {
+        x: -totalWidth,
+        duration: 50, // Adjust speed here
+        ease: 'none',
+        repeat: -1,
+        modifiers: {
+          x: gsap.utils.unitize(x => parseFloat(x) % totalWidth)
+        }
       });
+    }
+
+    return () => {
+      if (animationRef.current) {
+        animationRef.current.kill();
+      }
+    };
+  }, []);
+
+  const handleMouseEnter = () => {
+    if (animationRef.current) {
+      animationRef.current.pause();
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (animationRef.current) {
+      animationRef.current.play();
     }
   };
 
@@ -89,35 +111,19 @@ export default function Testimonials() {
 
         {/* Infinite Scroll Container */}
         <div className="relative py-8">
-          {/* Navigation Buttons */}
-          <button
-            onClick={() => scroll('left')}
-            className="absolute left-0 sm:left-2 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center transition-all duration-300 hover:scale-125"
-            aria-label="Scroll left"
-          >
-            <ChevronLeft className="w-10 h-10 sm:w-12 sm:h-12 text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]" strokeWidth={3} />
-          </button>
-          
-          <button
-            onClick={() => scroll('right')}
-            className="absolute right-0 sm:right-2 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center transition-all duration-300 hover:scale-125"
-            aria-label="Scroll right"
-          >
-            <ChevronRight className="w-10 h-10 sm:w-12 sm:h-12 text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]" strokeWidth={3} />
-          </button>
-          
           {/* Scrolling Content Wrapper */}
-          <div className="overflow-hidden px-12 sm:px-16">
+          <div className="overflow-hidden">
             <div 
-              ref={scrollContainerRef}
-              className="overflow-x-hidden py-4"
+              ref={cardsRef}
+              className="flex gap-4 sm:gap-6 py-4"
             >
-              <div className="flex gap-4 sm:gap-6 animate-scroll group">
-                {/* First set of testimonials */}
-                {testimonials.map((testimonial, idx) => (
+              {/* Render testimonials twice for seamless GSAP loop */}
+              {[...testimonials, ...testimonials].map((testimonial, idx) => (
                 <div
-                  key={`first-${idx}`}
-                  className="flex-shrink-0 w-[240px] sm:w-[350px] lg:w-[380px]"
+                  key={idx}
+                  className="testimonial-card flex-shrink-0 w-[240px] sm:w-[350px] lg:w-[380px]"
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
                 >
                   <div className="bg-black/40 backdrop-blur-md rounded-2xl p-4 sm:p-8 border border-white/20 hover:bg-black/50 hover:border-[#FF6B5B]/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl h-full flex flex-col">
                     {/* Quote Icon */}
@@ -141,70 +147,15 @@ export default function Testimonials() {
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="font-bold text-white text-sm sm:text-lg">{testimonial.name}</div>
-                        <div className="text-[10px] sm:text-sm text-gray-300 truncate">{testimonial.program}</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-              
-              {/* Duplicate set for seamless loop */}
-              {testimonials.map((testimonial, idx) => (
-                <div
-                  key={`second-${idx}`}
-                  className="flex-shrink-0 w-[240px] sm:w-[350px] lg:w-[380px]"
-                >
-                  <div className="bg-black/40 backdrop-blur-md rounded-2xl p-4 sm:p-8 border border-white/20 hover:bg-black/50 hover:border-[#FF6B5B]/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl h-full flex flex-col">
-                    {/* Quote Icon */}
-                    <Quote className="w-8 h-8 sm:w-12 sm:h-12 text-[#FF6B5B] mb-3 sm:mb-6 opacity-70" />
-
-                    {/* Testimonial Text */}
-                    <p className="text-gray-100 leading-snug mb-3 sm:mb-6 italic flex-grow text-xs sm:text-[15px]">
-                      "{testimonial.quote}"
-                    </p>
-
-                    {/* Author Info */}
-                    <div className="flex items-center gap-2 sm:gap-4 pt-3 sm:pt-6 border-t border-white/20 mt-auto">
-                      <div className="w-10 h-10 sm:w-16 sm:h-16 rounded-full flex items-center justify-center flex-shrink-0 shadow-lg overflow-hidden relative bg-gray-200">
-                        <Image
-                          src={testimonial.image}
-                          alt={testimonial.name}
-                          fill
-                          sizes="(max-width: 640px) 40px, 64px"
-                          className="object-cover"
-                        />
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <div className="font-bold text-white text-sm sm:text-lg">{testimonial.name}</div>
-                        <div className="text-[10px] sm:text-sm text-gray-300 truncate">{testimonial.program}</div>
+                        <div className="text-[10px] sm:text-sm text-gray-300 leading-tight">{testimonial.program}</div>
                       </div>
                     </div>
                   </div>
                 </div>
                 ))}
-              </div>
             </div>
           </div>
         </div>
-
-        <style jsx>{`
-          @keyframes scroll {
-            0% {
-              transform: translateX(0);
-            }
-            100% {
-              transform: translateX(calc(-386px * 5));
-            }
-          }
-
-          .animate-scroll {
-            animation: scroll 50s linear infinite;
-          }
-
-          .animate-scroll:hover {
-            animation-play-state: paused;
-          }
-        `}</style>
 
         {/* Video Section */}
         <div className="mt-16 text-center">
