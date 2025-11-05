@@ -294,7 +294,7 @@ const coursesData: Record<string, any> = {
   'marine-engineering': {
     title: 'Diploma In Marine Engineering',
     subtitle: 'Program ini memberikan pengetahuan tentang kejuruteraan marin khususnya dalam janatenaga marin dan mengenalpasti permasalahan dalam operasi dan baikpulih.',
-    image: '/gambar course/marine engineering.png',
+    image: '/program card img/marine engineering card.jpg',
     backgroundImage: '/Diploma-in-Marine-Engineering-bg.jpg',
     description: 'Program ini memberikan pengetahuan tentang kejuruteraan marin khususnya dalam janatenaga marin & mengenalpasti permasalahan dalam operasi & baikpulih. Pelajar akan didedahkan dengan amali asas berkaitan kerja tangan, pemesinan larik & kimpalan untuk membiasakan dengan persekitaran kejuruteraan marin.',
     syaratKemasukan: [

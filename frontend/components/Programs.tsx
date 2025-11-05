@@ -28,13 +28,13 @@ const programCategories = [
       {
         title: 'Diploma In Nautical Studies',
         slug: 'nautical-studies',
-        image: '/gambar course/nautical studies.png',
+        image: '/program card img/nautical card.jpeg',
         description: 'Melahirkan graduan yang berkualiti, berilmu dan kompeten dalam industri maritim terutamanya dalam sektor pengemudian. Program ini mendedahkan kepada pelajar tentang ilmu pelayaran dan pengemudian kapal.',
       },
       {
         title: 'Diploma In Marine Engineering',
         slug: 'marine-engineering',
-        image: '/program card img/marine engineering card.jpg',
+        image: '/program card img/marine engineering card.jpeg',
         description: 'Program ini memberikan pengetahuan tentang kejuruteraan marin khususnya dalam janatenaga marin dan menguruskan operasional dan baikpulih.',
       },
     ]
