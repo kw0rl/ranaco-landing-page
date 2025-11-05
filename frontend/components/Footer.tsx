@@ -122,14 +122,19 @@ export default function Footer() {
           <div>
             <h3 className="font-bold text-lg mb-6">Hubungi Kami</h3>
             <div className="space-y-4">
-              <div className="flex items-start space-x-3">
-                <MapPin className="w-5 h-5 text-[#FF6B5B] flex-shrink-0 mt-1" />
-                <p className="text-gray-400 text-sm">
+              <a 
+                href="https://www.google.com/maps/dir/?api=1&destination=4.215116880552498,103.42635841887314" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-start space-x-3 hover:text-[#FF6B5B] transition-colors group"
+              >
+                <MapPin className="w-5 h-5 text-[#FF6B5B] flex-shrink-0 mt-1 group-hover:scale-110 transition-transform" />
+                <p className="text-gray-400 text-sm group-hover:text-[#FF6B5B]">
                   PT 4568, Jalan Bengkel 1,<br />
                   Kawasan Perindustrian Jakar II,<br />
                   24000 Kemaman, Terengganu
                 </p>
-              </div>
+              </a>
               <div className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-[#FF6B5B] flex-shrink-0" />
                 <a href="tel:+60985031261" className="text-gray-400 hover:text-[#FF6B5B] transition-colors text-sm">

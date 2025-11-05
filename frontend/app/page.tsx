@@ -15,8 +15,8 @@ export default function Home() {
     <MobileMenuProvider>
       <main className="min-h-screen">
         <Navbar />
-        <Hero />
         <InfoBanner />
+        <Hero />
         <Features />
         <About />
         <Programs />

@@ -34,7 +34,7 @@ const programCategories = [
       {
         title: 'Diploma In Marine Engineering',
         slug: 'marine-engineering',
-        image: '/gambar course/diploma in marine engineering.png',
+        image: '/program card img/marine engineering card.jpg',
         description: 'Program ini memberikan pengetahuan tentang kejuruteraan marin khususnya dalam janatenaga marin dan menguruskan operasional dan baikpulih.',
       },
     ]

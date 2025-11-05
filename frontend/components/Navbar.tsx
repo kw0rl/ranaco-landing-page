@@ -54,7 +54,12 @@ export default function Navbar() {
               <span className="hidden md:inline">marketing@reti.edu.my</span>
               <span className="md:hidden">Email</span>
             </a>
-            <a href="/#footer" className="hidden lg:flex items-center gap-2 hover:text-[#FF6B5B] transition-colors">
+            <a 
+              href="https://www.google.com/maps/dir/?api=1&destination=4.215116880552498,103.42635841887314" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="hidden lg:flex items-center gap-2 hover:text-[#FF6B5B] transition-colors"
+            >
               <MapPin size={16} />
               <span>PT 4568, Jalan Bengkel 1, Kawasan Perindustrian Jakar II, 24000 Kemaman, Terengganu</span>
             </a>

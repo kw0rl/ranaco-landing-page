@@ -135,6 +135,7 @@ export default function Testimonials() {
                           src={testimonial.image}
                           alt={testimonial.name}
                           fill
+                          sizes="(max-width: 640px) 40px, 64px"
                           className="object-cover"
                         />
                       </div>
@@ -169,6 +170,7 @@ export default function Testimonials() {
                           src={testimonial.image}
                           alt={testimonial.name}
                           fill
+                          sizes="(max-width: 640px) 40px, 64px"
                           className="object-cover"
                         />
                       </div>
