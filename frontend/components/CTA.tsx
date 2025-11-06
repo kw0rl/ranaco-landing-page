@@ -21,9 +21,7 @@ export default function CTA() {
                 src="https://docs.google.com/forms/d/e/1FAIpQLScYOor3Xdt-Ab_vZv2Cu9dwRJCkVkJaZX4m7NvYAwvHbAiyFA/viewform?embedded=true"
                 width="100%"
                 height="1200"
-                frameBorder="0"
-                marginHeight={0}
-                marginWidth={0}
+                style={{ border: 'none', margin: 0 }}
                 className="w-full"
               >
                 Loading…

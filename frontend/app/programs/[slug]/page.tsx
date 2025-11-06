@@ -527,9 +527,7 @@ export default async function CoursePage({ params }: { params: Promise<{ slug: s
               <iframe 
                 src={course.formUrl}
                 className='w-full h-full'
-                frameBorder="0"
-                marginHeight={0}
-                marginWidth={0}
+                style={{ border: 'none', margin: 0 }}
               >
                 Loading…
               </iframe>
