@@ -167,7 +167,7 @@ export default function Testimonials() {
                 height="100%"
                 src="https://www.youtube.com/embed/9n2dYu1X4Ms"
                 title="APA CERITA ALUMNI RANACO"
-                frameBorder="0"
+                style={{ border: 'none' }}
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
                 className="w-full h-full"
@@ -178,7 +178,7 @@ export default function Testimonials() {
             <div className="mt-8">
               <h4 className="text-xl font-semibold mb-6">Lebih Banyak Video Alumni</h4>
               <div className="relative">
-                <div className="overflow-hidden px-12 sm:px-16">
+                <div className="overflow-hidden px-0 sm:px-16">
                 {/* Left Arrow */}
                 <button
                   onClick={() => {
@@ -209,7 +209,7 @@ export default function Testimonials() {
                   <ChevronRight className="w-10 h-10 sm:w-12 sm:h-12 text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]" strokeWidth={3} />
                 </button>
 
-                  <div id="video-slider" className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide snap-x snap-mandatory">
+                  <div id="video-slider" className="flex gap-0 sm:gap-4 overflow-x-auto pb-4 scrollbar-hide snap-x snap-mandatory">
                   {[
                     { id: 'ZYBSfVMyaxw', title: 'Majlis Konvokesyen Ranaco Ke-13' },
                     { id: '9n2dYu1X4Ms', title: 'Apa Cerita Alumni RETI' },
@@ -222,7 +222,7 @@ export default function Testimonials() {
                   ].map((video, idx) => (
                     <div
                       key={idx}
-                      className="flex-shrink-0 w-[calc(100%-1rem)] sm:w-80 snap-start"
+                      className="flex-shrink-0 w-full sm:w-80 snap-start"
                     >
                       <div className="bg-white/5 rounded-xl overflow-hidden border border-white/10 hover:border-[#FF6B5B]/50 transition-all duration-300 hover:scale-105">
                         <div className="aspect-video">
@@ -231,7 +231,7 @@ export default function Testimonials() {
                             height="100%"
                             src={`https://www.youtube.com/embed/${video.id}`}
                             title={video.title}
-                            frameBorder="0"
+                            style={{ border: 'none' }}
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                             allowFullScreen
                             className="w-full h-full"
