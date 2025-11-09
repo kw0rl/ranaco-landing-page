@@ -6,7 +6,7 @@ const features = [
   {
     icon: Briefcase,
     title: 'Kebolehpasaran Kerja Graduan yang Tinggi',
-    description: '75% graduan kami mendapat pekerjaan dalam tempoh 6 bulan selepas tamat pengajian',
+    description: '<span class="font-bold bg-yellow-200 px-2 py-1 rounded text-xl">75%</span> graduan kami mendapat pekerjaan dalam tempoh 6 bulan selepas tamat pengajian',
     color: 'bg-blue-500'
   },
   {
@@ -36,7 +36,7 @@ const features = [
   {
     icon: DollarSign,
     title: 'Bantuan Pinjaman Pendidikan',
-    description: 'Pelbagai pilihan pembiayaan dan bantuan kewangan tersedia',
+    description: 'Pelbagai pilihan pembiayaan dan bantuan kewangan tersedia seperti bantuan pinjaman Perbadanan Tabung Pendidikan Tinggi Nasional (PTPTN), Affin Bank, Shopee Pay Later dan sebagainya',
     color: 'bg-teal-500'
   }
 ];
@@ -78,9 +78,7 @@ export default function Features() {
                 <h3 className="text-xl font-bold text-[#1E4A7A] mb-3 group-hover:text-[#FF6B5B] transition-colors">
                   {feature.title}
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  {feature.description}
-                </p>
+                <p className="text-gray-600 leading-relaxed" dangerouslySetInnerHTML={{ __html: feature.description }} />
 
                 {/* Decorative Element */}
                 <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-[#FF6B5B]/5 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity" />
